@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01$函数对象</title>
+    <script src="js/jquery.1.10.2.js"></script>
+</head>
+<body>
+    <h1 id="h1" class="h1">666</h1>
+    <script>
+        //$()等同jQuery()
+        //简易写法
+        $(function(){//文档加载完毕执行代码
+            //$("#h1")
+            //$(".h1")
+            $("h1").html("Bengen");
+        });
+        //复杂写法
+        $(document).ready(function(){
+            // :eq() 选择第几个
+            $(".h1:eq(0)")
+        });
+    </script>
+</body>
+</html>
