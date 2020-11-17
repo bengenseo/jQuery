@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03jQuery操作样式</title>
+    <script src="js/jquery.1.10.2.js"></script>
+    <style>
+        h1{
+            font-size: 30px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>bengen</h1>
+    <script>
+        //设置单个样式
+        $("h1").css("color","#eee");
+        //设置多个样式
+        $("h1").css({
+            color:"#aaa",
+            //驼峰命名法
+            fontSize:"30px",
+            //加双引号
+            "background-color": "aqua",
+        });
+    </script>
+</body>
+</html>

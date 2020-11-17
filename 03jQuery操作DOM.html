@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03jQuery操作DOM</title>
+    <script src="js/jquery.1.10.2.js"></script>
+</head>
+<body>
+    <h1>bengen</h1>
+    <h2 id="h2"></h2>
+    <p></p>
+    <script>
+        //删除
+        //删除自己（自杀）
+        // $("h1").remove();
+        // //删除子元素
+        // $("h1").empty();
+        // $("h1").html("");
+
+        var h2=$("<p>777888999</p>");
+
+        //添加
+        //在h1的子元素后面添加
+        $("h1").append("SEO");
+        //写法相反
+        h2.appendTo("p");
+
+        //在h1的子元素前面添加
+        $("h1").prepend("Web");
+        //写法相反
+        h2.prependTo("p");
+
+        //在后面添加
+        $("h1").after("<h2>同级h1的后面</h2>");
+        //在前面添加
+        $("h1").before("<h2>同级h1的前面</h2>");
+
+        //复制元素
+        var copy=$("h1").clone();
+        $("p").append(copy);
+
+        //选中 元素:checked
+    </script>
+
+
+
+
+
+    <style>
+        article{
+            width: 600px;
+            height: 300px;
+            margin: 0 auto;
+            display: flex;
+        }
+        .left,.auto,.right{
+            flex: 1;
+        }
+        select{
+            width: 150px;
+            height: 200px;
+        }
+    </style>
+    <main>
+        <article>
+            <div class="left">
+                <select name="fruits" id="" multiple>
+                    <option value="">111</option>
+                    <option value="">222</option>
+                    <option value="">333</option>
+                    <option value="">444</option>
+                </select>
+            </div>
+            <ul class="auto">
+                <li class="addAll">全部添加</li>
+                <li class="removeAll">全部删除</li>
+                <li class="add">添加</li>
+                <li class="remove">删除</li>
+            </ul>
+            <div class="right">
+                <select name="fruits" id="" multiple>
+                    
+                </select>
+            </div>
+        </article>
+    </main>
+    <script>
+        //添加所有
+        $(".addAll").click(function(){
+            $(".left  select  option").appendTo(".right select");
+        });
+        //删除所有
+        $(".removeAll").click(function(){
+            $(".right select option").appendTo(".left select");
+        });
+
+        //添加指定
+        $(".add").click(function(){
+            //把左边选中的放到右边
+            $(".left  select  option:checked").appendTo(".right select");
+        });
+        //删除指定
+        $(".remove").click(function(){
+            //获取左边的值，把右边选中的放给左边。
+            $(".left select").append($(".right select option:checked"));
+        });
+    </script>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav,ul{
+            list-style-type: none;
+        }
+        nav{
+            width: 200px;
+            height: 50px;
+            border: 2px solid rebeccapurple;
+            position: fixed;
+            left: 40%;
+            bottom: 0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        nav li{
+            position: relative;
+        }
+        .menu{
+            border: 2px solid #999;
+            position: absolute;
+            left: 0;
+            bottom: 50px;
+            display: none;
+        }
+        .menu.active{
+            display: block;
+        }
+    </style>
+    <nav>
+        <li>
+            菜单1
+            <ul class="menu">
+                <li>123</li>
+                <li>123</li>
+                <li>123</li>
+            </ul>
+        </li>
+        <li>
+            菜单2
+            <ul class="menu">
+                <li>123</li>
+                <li>123</li>
+                <li>123</li>
+            </ul>
+        </li>
+        <li>
+            菜单3
+            <ul class="menu">
+                <li>123</li>
+                <li>123</li>
+                <li>123</li>
+            </ul>
+        </li>
+    </nav>
+    <script>
+        $("nav>li").click(function(){
+            var index=$(this).index();
+            console.log();
+            if($("nav>li .menu").hasClass("active")==false){
+                $("nav>li .menu").eq(index).addClass("active");
+            }else{
+                $("nav>li .menu").removeClass("active");
+            }    
+        });
+    </script>
+</body>
+</html>

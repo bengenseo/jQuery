@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02jQuery特有选择器</title>
+    <script src="js/jquery.1.10.2.js"></script>
+</head>
+<body>
+    <ul>
+        <li>内容1</li>
+        <li>内容2</li>
+        <li>内容3</li>
+        <li>内容4</li>
+        <li>内容5</li>
+        <li>内容6</li>
+        <li>内容7</li>
+        <li>内容8</li>
+        <li>内容9</li>
+        <li>内容10</li>
+    </ul>
+    <script>
+        // :eq(index)   等于或第几
+        // :gt(index)   大于index索引值
+        //  $("li").gt(3).css("color","#eee")   等同
+        $("li:gt(3)").css("color","#eee")
+        // :lt(index)   小于index索引值
+
+
+
+        //奇偶数
+        //奇数 :odd
+        //偶数 :even
+
+
+
+        //第一个、最后一个
+        //第一个    :first
+        //最后一个  :last
+
+
+
+        //同级、同胞
+        //选择不包括自己的同级
+        $("h2").siblings();
+        //选择指定的同级 选择同级的P标签
+        $("h2").siblings("p");
+        //选择下一个同级
+        $("h2").next();
+        //选择所有下面的同级
+        $("h2").nextAll();
+
+
+        //后代选择器
+        //后代所有直接子元素
+        $("div").children();
+
+        //后代的所有子子孙孙 <span> 元素
+        $("div").find("span");
+    </script>
+</body>
+</html>
