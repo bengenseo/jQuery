@@ -6,7 +6,7 @@
     <title>06jQuery插件使用</title>
     <script src="js/jquery-2.0.0.min.js"></script>
     <style>
-        *,img{
+        *{
             margin: 0;
             padding: 0;
         }
@@ -16,43 +16,68 @@
             height: 600px;
             margin: 0 auto;
         }
+        ul li{
+            width: 800px;
+            height: 600px;
+        }
     </style>
 </head>
 <body>
     <ul>
-        <li><img src="images/1.jfif" alt=""></li>
-        <li><img src="images/2.jfif" alt=""></li>
-        <li><img src="images/3.jfif" alt=""></li>
-        <li><img src="images/4.jfif" alt=""></li>
-        <li><img src="images/5.jfif" alt=""></li>
-        <li><img src="images/6.jfif" alt=""></li>
-        <li><img src="images/7.jfif" alt=""></li>
-        <li><img src="images/1.jfif" alt=""></li>
-        <li><img src="images/2.jfif" alt=""></li>
-        <li><img src="images/3.jfif" alt=""></li>
-        <li><img src="images/4.jfif" alt=""></li>
-        <li><img src="images/5.jfif" alt=""></li>
-        <li><img src="images/6.jfif" alt=""></li>
-        <li><img src="images/7.jfif" alt=""></li>
-        <li><img src="images/1.jfif" alt=""></li>
-        <li><img src="images/2.jfif" alt=""></li>
-        <li><img src="images/3.jfif" alt=""></li>
-        <li><img src="images/4.jfif" alt=""></li>
-        <li><img src="images/5.jfif" alt=""></li>
-        <li><img src="images/6.jfif" alt=""></li>
-        <li><img src="images/7.jfif" alt=""></li>
+        <li><img data-src="images/1.jfif" class="bgLazy"></li>
+        <li><img data-src="images/2.jfif" class="bgLazy"></li>
+        <li><img data-src="images/3.jfif" class="bgLazy"></li>
+        <li><img data-src="images/4.jfif" class="bgLazy"></li>
+        <li><img data-src="images/5.jfif" class="bgLazy"></li>
+        <li><img data-src="images/6.jfif" class="bgLazy"></li>
+        <li><img data-src="images/7.jfif" class="bgLazy"></li>
+        <li><img data-src="images/1.jfif" class="bgLazy"></li>
+        <li><img data-src="images/2.jfif" class="bgLazy"></li>
+        <li><img data-src="images/3.jfif" class="bgLazy"></li>
+        <li><img data-src="images/4.jfif" class="bgLazy"></li>
+        <li><img data-src="images/5.jfif" class="bgLazy"></li>
+        <li><img data-src="images/6.jfif" class="bgLazy"></li>
+        <li><img data-src="images/7.jfif" class="bgLazy"></li>
+        <li><img data-src="images/1.jfif" class="bgLazy"></li>
+        <li><img data-src="images/2.jfif" class="bgLazy"></li>
+        <li><img data-src="images/3.jfif" class="bgLazy"></li>
+        <li><img data-src="images/4.jfif" class="bgLazy"></li>
+        <li><img data-src="images/5.jfif" class="bgLazy"></li>
+        <li><img data-src="images/6.jfif" class="bgLazy"></li>
+        <li><img data-src="images/7.jfif" class="bgLazy"></li>
     </ul>
     
     <script>
         //解决冲突的方法：$.noConflict(true或false);
         //$.noConflict();
 
-        //封装插件
+        //封装懒加载插件
         $.fn.extend({
             bgLazy:function(){
-
+                var $dom=this;
+                function loadImg(){
+                    //滚动高度
+                    var scrTop=$(window).scrollTop();
+                    //浏览器高度
+                    var scrHeight=$(window).height();
+                    // console.log(scrTop,scrHeight);
+                    // console.log($dom);
+                    $dom.each(function(i,item){
+                        //获取图片位置
+                        $(item).attr("src","images/loading.gif")
+                        var imgHeight=$(item).offset().top;
+                        if(imgHeight>(scrTop-200)&&imgHeight<(scrTop+scrHeight)){
+                            $(item).attr("src",$(item).attr("data-src"))
+                        }
+                    });
+                }
+                $(window).scroll(function(e){
+                    loadImg();
+                });
+                loadImg();
             }
         });
+        $(".bgLazy").bgLazy();
     </script>
 </body>
 </html>
