@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05jQuery事件</title>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        img{
+            line-height: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .banner{
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .bannerList>li{
+            position: absolute;
+            top: 0;
+        }
+        .btn{
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: calc(50% - 24px);
+        }
+        .itemList{
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .itemList .item{
+            width: 20px;
+            height: 20px;
+            background: #666;
+            border: #999 solid 3px;
+            border-radius: 10px;
+        }
+        .itemList .active{
+            background: #efefef;
+            border: #666 solid 3px;
+        }
+        .prev{
+            background: url(images/prev.png) no-repeat;
+            left: 0;
+        }
+        .next{
+            background: url(images/next.png) no-repeat;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="banner">
+        <ul class="bannerList">
+            <li><img src="images/1.jfif" alt=""></li>
+            <li><img src="images/2.jfif" alt=""></li>
+            <li><img src="images/3.jfif" alt=""></li>
+            <li><img src="images/4.jfif" alt=""></li>
+            <li><img src="images/5.jfif" alt=""></li>
+            <li><img src="images/6.jfif" alt=""></li>
+            <li><img src="images/7.jfif" alt=""></li>
+        </ul>
+        <ul class="itemList"></ul>
+        <div class="btn prev"></div>
+        <div class="btn next"></div>
+    </section>
+    <script>
+        /*
+            移入 mouseenter()
+            移出 mouseleave()
+            按下 mousedown()
+            松开 mouseup()
+            单击 click()
+            双击 dblclick()
+            获得焦点 focus()
+            失去焦点 blur()
+        */
+        $(".bannerList li").each(function(i,item){
+            $(item).css("transform","translate("+i*800+"px,0)");
+            //创建小圆点
+            var itemDom=$("<li></li>");
+            //设置class
+            itemDom.attr("class","item");
+            itemDom.appendTo(".itemList");
+        });
+        //设置第一个小圆点默认添加active
+        $(".item").eq(0).addClass("active");
+        var page=0;
+        //添加样式函数
+        function classStyle(){
+            $(".bannerList li").css("left",-page*800);
+            $(".item").removeClass("active").eq(page).addClass("active");
+        }
+        //下一页函数
+        function bannerNext(){
+            page++;
+            if(page>=$(".bannerList li").length){
+                page=0;
+            }
+            classStyle();
+        }
+        //上一页
+        $(".prev").click(function(){
+            page--;
+            if(page<0){
+                page=$(".bannerList li").length-1;
+            }
+            classStyle();
+        });
+        
+        //下一页
+        $(".next").click(function(){
+            bannerNext();
+        });
+        //自动轮播
+        var setId=setInterval(function(){
+            bannerNext();
+        },1500);
+        //鼠标移开
+        $(".banner").mouseleave(function(){
+            setId=setInterval(function(){
+                bannerNext();
+            },1500);
+        });
+
+        //鼠标移入停止自动轮播
+        $(".banner").mouseover(function(){
+            clearInterval(setId)
+        });
+        //小圆点功能
+        $(".item").click(function(e){
+            page=$(this).index();
+            classStyle();
+        });
+    </script>
+</body>
+</html>

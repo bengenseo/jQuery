@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06jQuery插件使用</title>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <style>
+        *,img{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style-type: none;
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="images/1.jfif" alt=""></li>
+        <li><img src="images/2.jfif" alt=""></li>
+        <li><img src="images/3.jfif" alt=""></li>
+        <li><img src="images/4.jfif" alt=""></li>
+        <li><img src="images/5.jfif" alt=""></li>
+        <li><img src="images/6.jfif" alt=""></li>
+        <li><img src="images/7.jfif" alt=""></li>
+        <li><img src="images/1.jfif" alt=""></li>
+        <li><img src="images/2.jfif" alt=""></li>
+        <li><img src="images/3.jfif" alt=""></li>
+        <li><img src="images/4.jfif" alt=""></li>
+        <li><img src="images/5.jfif" alt=""></li>
+        <li><img src="images/6.jfif" alt=""></li>
+        <li><img src="images/7.jfif" alt=""></li>
+        <li><img src="images/1.jfif" alt=""></li>
+        <li><img src="images/2.jfif" alt=""></li>
+        <li><img src="images/3.jfif" alt=""></li>
+        <li><img src="images/4.jfif" alt=""></li>
+        <li><img src="images/5.jfif" alt=""></li>
+        <li><img src="images/6.jfif" alt=""></li>
+        <li><img src="images/7.jfif" alt=""></li>
+    </ul>
+    
+    <script>
+        //解决冲突的方法：$.noConflict(true或false);
+        //$.noConflict();
+
+        //封装插件
+        $.fn.extend({
+            bgLazy:function(){
+
+            }
+        });
+    </script>
+</body>
+</html>

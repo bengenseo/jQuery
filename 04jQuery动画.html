@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04jQuery动画</title>
+    <script src="js/jquery-2.0.0.min.js"></script>
+</head>
+<body>
+    <script>
+        //取消浏览器默认操作
+        e.preventDefault();
+
+        //表单获取value值
+        // vla();
+        //获取文字
+        //text();
+
+        //显示,第二个值可以传入回调函数
+        show(200,function(){
+
+        });
+        //隐藏
+        hide();
+        //显示隐藏切换
+        $("selector").toggle();
+
+        //滑入
+        $("selector").slideDown();
+        //滑出
+        $("selector").slideUp();
+        //滑入滑出切换
+        $("selector").slideToggle();
+
+        //淡入
+        $("selector").fadeIn();
+        //淡出
+        $("selector").fadeOut();
+        //淡入淡出切换
+        $("selector").fadeToggle();
+
+        //自定义动画 第一个参数必选CSS属性，第二个动画时长，第三个回调函数
+        $("selector").animate();
+
+        //停止动画 两个参数传入true或false
+        stop();
+    </script>
+</body>
+</html>

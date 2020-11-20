@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>04jQuery对象的属性获取和设置</title>
+    <script src="js/jquery.1.10.2.js"></script>
+</head>
+<body>
+    <img src="" alt="" srcset="">
+    <input type="checkbox" name="" id="">
+    <script>
+        //传两个参数是设置属性
+        $("img").attr("src","http://www.bengenseo.com/templets/demo/images/wxgzh.png");
+        //传一个参数是获取
+        console.log($("img").attr("src"));
+        //删除属性
+        $("img").removeAttr("alt");
+
+        //设置表单属性
+        //  checked   selected   disabled
+        $("input").prop("checked",true);
+        //获取
+        console.log($("input").prop("checked"));
+
+        //删除属性 removeProp()
+        
+    </script>
+</body>
+</html>

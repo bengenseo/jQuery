@@ -1,0 +1,102 @@
+:root{
+    /*经典色 HSB，保持两个量不变，只渐变一个递减20変量*/
+    --black-color:#363636;
+    --gray-color:#4c4c4c;
+    --Lgray-color:#999999;
+    --white-color:#f4f4f4;
+    /* Moss 苔藓色*/
+    --Omoss-color:#006270;
+    --Tmoss-color:#009394;
+    --THmoss-color:#00e0c7;
+    --Fmoss-color:#ffffff;
+    /* Haze 阴霾色 */
+    --Ohaze-color:#0f6bae;
+    --Thaze-color:#248bd6;
+    --THhaze-color:#83b8ff;
+    --Fhaze-color:#c6cdff;
+    /* Cooler 冰爽色 */
+    --Ocooler-color:#4bb6f4;
+    --Tcooler-color:#1f9ce4;
+    --THcooler-color:#3e60c1;
+    --Fcooler-color:#5983fc;
+    /* Sunset 夕阳色 */
+    --Osunset-color:#355C7D;
+    --Tsunset-color:#725A7A;
+    --THsunset-color:#C56C86;
+    --Fsunset-color:#FF7532;
+    /* Tangerine 柑橘色 */
+    --Otangerine-color:#FF6D00;
+    --Ttangerine-color:#FF9201;
+    --THtangerine-color:#FFAB40;
+    --Ftangerine-color:#FFD180;
+    /* Granite 花岗岩色 */
+    --Ogranite-color:#3B7B9A;
+    --Tgranite-color:#70AFCE;
+    --THgranite-color:#A5DEF1;
+    --Fgranite-color:#FFFFFF;
+    /* Fairy 妖精色 */
+    --Ofairy-color:#A163F7;
+    --Tfairy-color:#6F88FC;
+    --THfairy-color:#45E3FF;
+    --Ffairy-color:#FEFEF2;
+    /* Slate 石板色 */
+    --Oslate-color:#5B7FA7;
+    --Tslate-color:#508DA3;
+    --THslate-color:#A5DEF1;
+    --Fslate-color:#FFFFFF;
+    /* Docks 船坞色 */
+    --Odocks-color:#43506c;
+    --Tdocks-color:#EF4B4C;
+    --THdocks-color:#3D619B;
+    --Fdocks-color:#E9E9EB;
+    /* 理性色 */
+    --blue-color:#2B5994;
+    --Dblue-color:#3793FF;
+    --Lblue-color:#E9E8F8;
+    --orange-color:#ff5700;
+}
+*{margin:0;padding:0;font: 16px/1 'Microsoft Yahei','simsun', "arial", "sans-serif";box-sizing: border-box;}
+ol,ul,nav {list-style:none}
+a,a:hover {text-decoration:none}
+input{border: none;outline: none;}
+button{border: none;}
+address,cite,dfn,em,var {font-style:normal}
+fieldset,img {border:0}
+img{max-width:100%;line-height: 0;}
+.ma{margin: 0 auto!important}
+.vv{visibility:visible}
+.dn{display:none}
+.di{display:inline}
+.db{display:block}
+.dib{display: inline-block}
+.fr{float:right}
+.fl{float:left}
+.tc{text-align: center}
+.tr{text-align:right}
+.tj{text-align:justify}
+.pr{position: relative}
+.pa{position: absolute}
+.t0{top: 0}
+.r0{right: 0}
+.b0{bottom: 0}
+.l0{left: 0}
+.op{opacity: 1;}
+.clear:after {
+    /* 清除浮动 解决父元素高度塌陷问题 */
+    content: "";
+    display: block;
+    clear: both;
+}
+
+@media screen and (min-width:1200px){
+
+}
+@media screen and (min-width:992px){
+
+}
+@media screen and (min-width:768px){
+
+}
+@media screen and (min-width:480px){
+    
+}
