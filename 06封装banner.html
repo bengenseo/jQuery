@@ -97,6 +97,10 @@
     <script>
         $(".banner").bgBanner(".banner");
         $(".banner1").bgBanner(".banner1");
+        this.setId=setInterval(() => {
+            that.forword();
+        }, 1500);
+        clearInterval(setId);
     </script>
 </body>
 </html>
