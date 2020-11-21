@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06jQueryAjax</title>
+    <script src="js/jquery-2.0.0.min.js"></script>
+</head>
+<body>
+    <script>
+        //ajax的get使用方法
+        var httpUrl="http://127.0.0.1:5500/06Ajax.json";
+        $.get(httpUrl,function(res){
+            $("body").append(`<h1>${res.title}</h1>${res.content}`);
+        });
+        //写法二 $.get().then(function(){});
+        //写法三
+        var httpUrl1="https://api.apiopen.top/getJoke?page=1&count=20&type=video";
+        var options=[{
+            page:1,
+            count:10,
+            type:"image"
+        }];
+        $.get(httpUrl1,options,function(res){
+            // console.log(res.result);
+            res.result.forEach((item,i) => {
+                // console.log(item);
+                $("body").append(`<li>${item.text}</li>`);
+            });
+        });
+        //写法四
+        $.ajax({
+            url:httpUrl1,
+            data:options,
+            method:"GET",
+            // //成功执行的函数
+            // success:function(){
+
+            // }
+            // //失败执行的函数
+            // fail:function(){
+
+            // }
+            //不管成功还是失败，都会执行的函数
+            complete:function(res){
+                console.log(res);
+            }
+        });
+    </script>
+</body>
+</html>
