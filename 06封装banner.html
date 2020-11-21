@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>06封装banner</title>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        img{
+            line-height: 0;
+        }
+        ul{
+            list-style-type: none;
+        }
+        .banner,.banner1{
+            width: 800px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .bannerList>li{
+            position: absolute;
+            top: 0;
+        }
+        .btn{
+            width: 48px;
+            height: 48px;
+            position: absolute;
+            top: calc(50% - 24px);
+        }
+        .itemList{
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            bottom: 10px;
+            display: flex;
+            justify-content: center;
+        }
+        .itemList .item{
+            width: 20px;
+            height: 20px;
+            background: #666;
+            border: #999 solid 3px;
+            border-radius: 10px;
+        }
+        .itemList .active{
+            background: #efefef;
+            border: #666 solid 3px;
+        }
+        .prev{
+            background: url(images/prev.png) no-repeat;
+            left: 0;
+        }
+        .next{
+            background: url(images/next.png) no-repeat;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <section class="banner">
+        <ul class="bannerList">
+            <li><img src="images/1.jfif" alt=""></li>
+            <li><img src="images/2.jfif" alt=""></li>
+            <li><img src="images/3.jfif" alt=""></li>
+            <li><img src="images/4.jfif" alt=""></li>
+            <li><img src="images/5.jfif" alt=""></li>
+            <li><img src="images/6.jfif" alt=""></li>
+            <li><img src="images/7.jfif" alt=""></li>
+        </ul>
+        <ul class="itemList"></ul>
+        <div class="btn prev"></div>
+        <div class="btn next"></div>
+    </section>
+    <section class="banner1">
+        <ul class="bannerList">
+            <li><img src="images/1.jfif" alt=""></li>
+            <li><img src="images/2.jfif" alt=""></li>
+            <li><img src="images/3.jfif" alt=""></li>
+            <li><img src="images/4.jfif" alt=""></li>
+            <li><img src="images/5.jfif" alt=""></li>
+            <li><img src="images/6.jfif" alt=""></li>
+            <li><img src="images/7.jfif" alt=""></li>
+        </ul>
+        <ul class="itemList"></ul>
+        <div class="btn prev"></div>
+        <div class="btn next"></div>
+    </section>
+    <script src="js/06封装.js"></script>
+    <script>
+        $(".banner").bgBanner(".banner");
+        $(".banner1").bgBanner(".banner1");
+    </script>
+</body>
+</html>
