@@ -62,7 +62,7 @@ input{border: none;outline: none;}
 button{border: none;}
 address,cite,dfn,em,var {font-style:normal}
 fieldset,img {border:0}
-img{max-width:100%;line-height: 0;}
+img{max-width:100%;line-height: 0;border: 0}
 .ma{margin: 0 auto!important}
 .vv{visibility:visible}
 .dn{display:none}
@@ -98,5 +98,5 @@ img{max-width:100%;line-height: 0;}
 
 }
 @media screen and (min-width:480px){
-    
+
 }

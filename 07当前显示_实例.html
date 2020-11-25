@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07当前显示_实例</title>
+    <script src="js/jquery-2.0.0.min.js"></script>
+    <link rel="stylesheet" href="css/css.css">
+    <style>
+        .navLsit{
+            width: 500px;
+            height: 100px;
+            margin: 0 auto;
+            background: rebeccapurple;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .title{
+            width: 100%;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            color: #fff;
+        }
+        .title.active{
+            background: chartreuse;
+        }
+        .cttList{
+            width: 500px;
+            height: 300px;
+            margin: 0 auto;
+            background: coral;
+            position: relative;
+        }
+        .content{
+            position: absolute;
+            left: 0;
+            top: 0;
+            display: none;
+        }
+        .content.active{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <section class="navLsit">
+                <div class="title">娱乐新闻</div>
+                <div class="title">国内新闻</div>
+                <div class="title">国际新闻</div>
+            </section>
+            <section class="cttList">
+                <div class="content">娱乐内容</div>
+                <div class="content">国内内容</div>
+                <div class="content">国际内容</div>
+            </section>
+        </article>
+    </main>
+    <script>
+        //默认第一个选中
+        $(".title").eq(0).addClass("active");
+        $(".content").eq(0).addClass("active");
+        //点击选中
+        $(".title").click(function(){
+            var index=$(this).index();
+            $(".title").removeClass("active").eq(index).addClass("active");
+            $(".content").removeClass("active").eq(index).addClass("active");
+        });
+    </script>
+</body>
+</html>
